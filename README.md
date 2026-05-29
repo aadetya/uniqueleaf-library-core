@@ -108,6 +108,8 @@ The project supports multiple branches, keeps borrowing history, handles reserva
 
 ## Class Diagram
 
+### Core Domain Diagram
+
 ```mermaid
 classDiagram
     class Book {
@@ -166,6 +168,18 @@ classDiagram
         +boolean availableAtPreferredBranch
     }
 
+    Book "1" --> "*" BookCopy
+    Branch "1" --> "*" BookCopy
+    Patron "1" --> "*" Loan
+    Patron "1" --> "*" Reservation
+    Book "1" --> "*" Reservation
+    Book --> Recommendation
+```
+
+### Service And Infrastructure Diagram
+
+```mermaid
+classDiagram
     class CatalogService
     class PatronService
     class LendingService
@@ -191,12 +205,6 @@ classDiagram
 
     class LoanPolicy
     class StandardLoanPolicy
-
-    Book "1" --> "*" BookCopy
-    Branch "1" --> "*" BookCopy
-    Patron "1" --> "*" Loan
-    Patron "1" --> "*" Reservation
-    Book "1" --> "*" Reservation
 
     CatalogService --> BookRepository
     CatalogService --> BookCopyRepository
@@ -227,6 +235,16 @@ classDiagram
     AuthorAffinityRecommendationStrategy ..|> RecommendationStrategy
     StandardLoanPolicy ..|> LoanPolicy
 ```
+
+### Diagram Legend
+
+| Arrow | Meaning |
+| --- | --- |
+| `A --> B` | `A` is associated with, uses, or depends on `B` |
+| `A ..|> B` | `A` implements or realizes interface `B` |
+| `"1" --> "*"` | one-to-many relationship |
+
+In the domain diagram, multiplicity is shown where it matters. In the service diagram, most `-->` arrows simply mean one class depends on another.
 
 ## Sample Workflows
 
