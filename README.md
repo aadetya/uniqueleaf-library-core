@@ -238,14 +238,32 @@ classDiagram
 
 ### Diagram Legend
 
-- `A --> B`
-  Solid arrow. I used this for direct association, usage, or dependency.
-
-- `A ..|> B`
-  Dashed line with a hollow triangle. I used this to show implementation or interface realization.
-
-- `"1" --> "*"`
-  Multiplicity marker. This means one item on the left can be related to many items on the right.
+<table>
+  <thead>
+    <tr>
+      <th>Notation</th>
+      <th>Line Style</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>A --&gt; B</code></td>
+      <td>Solid line</td>
+      <td>Direct association, usage, or dependency</td>
+    </tr>
+    <tr>
+      <td><code>A ..&#124;&gt; B</code></td>
+      <td>Dashed line with hollow triangle</td>
+      <td>Implementation or interface realization</td>
+    </tr>
+    <tr>
+      <td><code>"1" --&gt; "*"</code></td>
+      <td>Solid line with multiplicity labels</td>
+      <td>One-to-many relationship</td>
+    </tr>
+  </tbody>
+</table>
 
 In the domain diagram, the multiplicity labels are only shown where they actually matter. In the service diagram, most solid arrows just mean one class depends on another class or interface.
 
