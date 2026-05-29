@@ -238,13 +238,16 @@ classDiagram
 
 ### Diagram Legend
 
-| Arrow | Meaning |
-| --- | --- |
-| `A --> B` | `A` is associated with, uses, or depends on `B` |
-| `A ..|> B` | `A` implements or realizes interface `B` |
-| `"1" --> "*"` | one-to-many relationship |
+- `A --> B`
+  Solid arrow. I used this for direct association, usage, or dependency.
 
-In the domain diagram, multiplicity is shown where it matters. In the service diagram, most `-->` arrows simply mean one class depends on another.
+- `A ..|> B`
+  Dashed line with a hollow triangle. I used this to show implementation or interface realization.
+
+- `"1" --> "*"`
+  Multiplicity marker. This means one item on the left can be related to many items on the right.
+
+In the domain diagram, the multiplicity labels are only shown where they actually matter. In the service diagram, most solid arrows just mean one class depends on another class or interface.
 
 ## Sample Workflows
 
